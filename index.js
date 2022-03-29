@@ -122,6 +122,22 @@ async function askName() {
     return handleAnswer(answers.question_5 === 'Rurouni kenshin⚔');
   }
 
+  async function question6() {
+    const answers = await inquirer.prompt({
+      name: 'question_6',
+      type: 'list',
+      message: 'Tulepera?\n',
+      choices: [
+        'Con la papaya',
+        'what',
+        'no idea',
+        'death',
+      ],
+    });
+  
+    return handleAnswer(answers.question_6 === 'Con la papaya');
+  }
+
   async function handleAnswer(isCorrect) {
     const spinner = createSpinner('Checking answer...').start();
     await sleep();
@@ -157,4 +173,5 @@ await question2();
 await question3();
 await question4();
 await question5();
+await question6();
 winner();
